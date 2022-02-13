@@ -9,8 +9,7 @@
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/8.0.152" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="txtNome" layoutX="224.0" layoutY="145.0" prefHeight="30.0" prefWidth="242.0" promptText="Digite o seu nome completo">
          <font>
@@ -22,17 +21,17 @@
             <Font size="15.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="txtSenha" layoutX="226.0" layoutY="221.0" prefHeight="30.0" prefWidth="242.0" promptText="Digite sua senha">
+      <PasswordField fx:id="txtSenha" layoutX="225.0" layoutY="220.0" prefHeight="30.0" prefWidth="242.0" promptText="Digite sua senha">
          <font>
             <Font size="15.0" />
          </font>
       </PasswordField>
-      <PasswordField fx:id="txtConSenha" layoutX="226.0" layoutY="259.0" prefHeight="30.0" prefWidth="242.0" promptText="Confirme sua senha">
+      <PasswordField fx:id="txtConSenha" layoutX="224.0" layoutY="259.0" prefHeight="30.0" prefWidth="242.0" promptText="Confirme sua senha">
          <font>
             <Font size="15.0" />
          </font>
       </PasswordField>
-      <Button fx:id="btNewUser" layoutX="240.0" layoutY="324.0" mnemonicParsing="false" onAction="#cadastrarUsuario" prefHeight="25.0" prefWidth="214.0" style="-fx-background-color: #ccc;" text="Cadastrar Usuário">
+      <Button fx:id="btNewUser" layoutX="240.0" layoutY="324.0" mnemonicParsing="false" onAction="#cadastrarUsuario" prefHeight="25.0" prefWidth="214.0" style="-fx-background-color: #403F3F;" text="Cadastrar Usuário" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
