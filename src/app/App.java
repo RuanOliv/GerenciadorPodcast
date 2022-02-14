@@ -1,80 +1,68 @@
 package app;
 
+import controle.UsuarioControle;
 import modelo.Usuario;
 import modelo.EpPodcast;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.fxml.JavaFXBuilderFactory;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
-public class App {
+public class App extends Application {
+	private Stage stage;
 
     public static void main(String[] args) {
-
-       
-
-        int opcao = 0;
-        Scanner teclado = new Scanner(System.in);
-        
-        try {
-            do {
-
-            menu();
-            opcao = Integer.parseInt(teclado.nextLine());
-
-            switch (opcao) {
-                case 1:
-                    
-                    break;
-                case 2:
-                    
-                    break;    
-                case 3:
-                    
-                    break;
-                case 4:
-                    
-                    break;    
-                case 5:
-                    
-                    break;
-                case 6:
-                    
-                    break;    
-                case 7:
-                    
-                    break;
-                case 8:
-                    
-                    break;
-                
-
-            }
-
-        } while (opcao != 0);
-
-        } catch (Exception e) {
-            System.out.println("Erro:" + e.getMessage());
-        }
-        
+       	Application.launch(App.class, (java.lang.String[]) null);
     }
 
-    public static void menu() {
-        System.out.println("Menu\n"
-                + "---------------------------------\n"
-                + "1 – Cadastrar Usuário\n"
-                + "2 - Atualizar Usuário\n"                                
-                + "3 - Deletar Usuário\n"
-                + "4 - Listar Usuário\n"
-                + "5 – Cadastrar Episódio\n"
-                + "6 - Atualizar Episódio\n"
-                + "7 - Deletar Episódio\n"
-                + "8 – Listar Episódios\n"
-                + "0 – Sair\n"
-                + "---------------------------------\n"
-                + "\n"
-                + "Digite a opção: ");
-    }
+    @Override
+	public void start(Stage primaryStage) throws Exception {
+		try {
+			stage = primaryStage;
+			stage.setTitle("Tela principal");
+			goToInicial();
+			primaryStage.show();
+		} catch (Exception ex) {
+			Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+		}
+	}
+    
+    public void goToInicial() {
+		try {
+			UsuarioControle pController = (UsuarioControle) replaceSceneContent("Inicial.fxml");
+			pController.setApp(this);
+
+		} catch (Exception ex) {
+			Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+		}
+	}
+    
+    private Initializable replaceSceneContent(String fxml) throws Exception {
+		FXMLLoader loader = new FXMLLoader();
+		InputStream in = App.class.getResourceAsStream(fxml);
+		loader.setBuilderFactory(new JavaFXBuilderFactory());
+		loader.setLocation(App.class.getResource(fxml));
+		AnchorPane page;
+		try {
+			page = (AnchorPane) loader.load(in);
+		} finally {
+			in.close();
+		}
+		Scene scene = new Scene(page, 800, 600);
+		stage.setScene(scene);
+		stage.sizeToScene();
+		return (Initializable) loader.getController();
+	}
 
 
 }
