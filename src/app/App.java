@@ -2,8 +2,6 @@ package app;
 
 import modelo.Usuario;
 import modelo.EpPodcast;
-import visao.UsuarioForm;
-import visao.EpPodcastForm;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -26,28 +24,28 @@ public class App {
 
             switch (opcao) {
                 case 1:
-                    UsuarioForm.salvar();
+                    
                     break;
                 case 2:
-                    UsuarioForm.atualizar();
+                    
                     break;    
                 case 3:
-                    UsuarioForm.delete();
+                    
                     break;
                 case 4:
-                    UsuarioForm.listar();
+                    
                     break;    
                 case 5:
-                    EpPodcastForm.salvar();
+                    
                     break;
                 case 6:
-                    EpPodcastForm.atualizar();
+                    
                     break;    
                 case 7:
-                    EpPodcastForm.delete();
+                    
                     break;
                 case 8:
-                    EpPodcastForm.listar();
+                    
                     break;
                 
 
