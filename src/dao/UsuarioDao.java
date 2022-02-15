@@ -138,7 +138,7 @@ public class UsuarioDao extends Dao {
                 
 
                 PreparedStatement stmt = this.con.prepareStatement("select id, nome, email, senha, administrador from usuario where email=?");
-                stmt.setInt(1, email);
+                stmt.setString(1, email);
                 ResultSet rs = stmt.executeQuery();
 
                 while (rs.next()) {               

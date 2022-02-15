@@ -1,5 +1,8 @@
 package controle;
 
+
+
+import app.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -8,7 +11,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 public class LoginControle {
+	private App application;
 
+	public void setApp(App application) {
+		this.application = application;
+	}
     @FXML
     private Button btEntrar;
 
@@ -27,5 +34,6 @@ public class LoginControle {
     void TelaCadastro(MouseEvent event) {
     	
     }
+    
 
 }
