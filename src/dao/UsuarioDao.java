@@ -131,5 +131,34 @@ public class UsuarioDao extends Dao {
         }
 
     }
+    
+        public Usuario buscarPorEmail(String email) {
+            try {
+                Usuario u = new Usuario();
+                
+
+                PreparedStatement stmt = this.con.prepareStatement("select id, nome, email, senha, administrador from usuario where email=?");
+                stmt.setInt(1, email);
+                ResultSet rs = stmt.executeQuery();
+
+                while (rs.next()) {               
+                    u.setId(rs.getInt("id"));
+                    u.setNome(rs.getString("nome"));
+                    u.setEmail(rs.getString("email"));
+                    u.setSenha(rs.getString("senha"));
+                    u.setAdministrador(rs.getBoolean("administrador"));
+                }
+                rs.close();
+                stmt.close();
+                ConnectionFactory.closeConexao(this.con);
+                
+                return u;
+
+            } catch (SQLException ex) {
+                Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+                return null;
+            }
+
+        }        
 
 }
