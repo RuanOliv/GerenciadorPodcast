@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.LoginControle">
+<AnchorPane fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginControle">
    <children>
       <TextField fx:id="txtEmail" layoutX="224.0" layoutY="141.0" prefHeight="31.0" prefWidth="242.0" promptText="Email">
          <font>
@@ -20,5 +20,6 @@
       </Button>
       <Label layoutX="247.0" layoutY="307.0" text="Não tem uma conta ?" />
       <Label fx:id="btTelaCadastro" layoutX="368.0" layoutY="307.0" onMouseClicked="#TelaCadastro" text="CADASTRE-SE" textFill="#403f3f" />
+      <Button fx:id="btTest" layoutX="452.0" layoutY="303.0" mnemonicParsing="false" onAction="#irTela" text="OI" />
    </children>
 </AnchorPane>

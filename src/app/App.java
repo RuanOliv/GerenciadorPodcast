@@ -1,12 +1,12 @@
 package app;
 
-import controle.UsuarioControle;
-import controle.InicialControle;
-import controle.LoginControle;
 import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import controle.CadastroUsuarioControle;
+import controle.InicialControle;
+import controle.LoginControle;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -35,7 +35,7 @@ public class App extends Application {
 	}
     public void goToLogin() {
 		try {
-			LoginControle lController = (LoginControle) replaceSceneContent("telaLogin.fxml");
+			LoginControle lController = (LoginControle) replaceSceneContent("../visao/telaLogin.fxml");
 			lController.setApp(this);
 
 		} catch (Exception ex) {
@@ -44,7 +44,7 @@ public class App extends Application {
 	}
     public void goToInicial() {
 		try {
-			InicialControle iController = (InicialControle) replaceSceneContent("telaInicial.fxml");
+			InicialControle iController = (InicialControle) replaceSceneContent("../visao/telaInicial.fxml");
 			iController.setApp(this);
 
 		} catch (Exception ex) {
@@ -52,6 +52,15 @@ public class App extends Application {
 		}
 	}
     
+    public void goToCadastrarUsuario() {
+		try {
+			CadastroUsuarioControle cController = (CadastroUsuarioControle) replaceSceneContent("../visao/telaCadastroUsuario.fxml");
+			cController.setApp(this);
+
+		} catch (Exception ex) {
+			Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+		}
+	}
     private Initializable replaceSceneContent(String fxml) throws Exception {
 		FXMLLoader loader = new FXMLLoader();
 		InputStream in = App.class.getResourceAsStream(fxml);
