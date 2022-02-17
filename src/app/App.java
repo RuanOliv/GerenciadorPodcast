@@ -4,8 +4,12 @@ import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import controle.CadastroEpPodcastControle;
 import controle.CadastroUsuarioControle;
+import controle.InicialAdmControle;
 import controle.InicialControle;
+import controle.ListarEpisodiosControle;
+import controle.ListarUsuariosControle;
 import controle.LoginControle;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -27,7 +31,7 @@ public class App extends Application {
 		try {
 			stage = primaryStage;
 			stage.setTitle("Login");
-			goToLogin();
+			goToInicialAdm();
 			primaryStage.show();
 		} catch (Exception ex) {
 			Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
@@ -61,6 +65,43 @@ public class App extends Application {
 			Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
 		}
 	}
+    public void goToCadastrarEpisodio() {
+		try {
+			CadastroEpPodcastControle cController = (CadastroEpPodcastControle) replaceSceneContent("../visao/telaCadastroEpisodio.fxml");
+			cController.setApp(this);
+
+		} catch (Exception ex) {
+			Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+		}
+	}
+    public void goToListEpisodio() {
+		try {
+			ListarEpisodiosControle cController = (ListarEpisodiosControle) replaceSceneContent("../visao/telaListarEpisodios.fxml");
+			cController.setApp(this);
+
+		} catch (Exception ex) {
+			Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+		}
+	}
+    public void goToListUsuario() {
+		try {
+			ListarUsuariosControle cController = (ListarUsuariosControle) replaceSceneContent("../visao/telaListarUsuarios.fxml");
+			cController.setApp(this);
+
+		} catch (Exception ex) {
+			Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+		}
+	}
+    public void goToInicialAdm() {
+		try {
+			InicialAdmControle cController = (InicialAdmControle) replaceSceneContent("../visao/telaInicialAdm.fxml");
+			cController.setApp(this);
+
+		} catch (Exception ex) {
+			Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+		}
+	}
+    
     private Initializable replaceSceneContent(String fxml) throws Exception {
 		FXMLLoader loader = new FXMLLoader();
 		InputStream in = App.class.getResourceAsStream(fxml);

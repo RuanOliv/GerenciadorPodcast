@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.Line?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.InicialControle">
    <children>
       <Line endX="590.0" layoutX="101.0" layoutY="48.0" startX="-100.0" />
       <TextField fx:id="txtPesquisar" layoutX="420.0" layoutY="14.0" onAction="#Pesquisar" />

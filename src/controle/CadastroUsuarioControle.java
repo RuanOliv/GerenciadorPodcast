@@ -3,6 +3,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import app.App;
+import dao.DaoFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,6 +11,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+//import javafx.scene.control.Alert;
+//import javafx.scene.control.Alert.AlertType;
+import modelo.Usuario;
 
 public class CadastroUsuarioControle implements Initializable {
 	
@@ -38,8 +42,27 @@ public class CadastroUsuarioControle implements Initializable {
     private PasswordField txtSenha;
 
     @FXML
-    void cadastrarUsuario(ActionEvent event) {
+    Usuario cadastrarUsuario(ActionEvent event) {
+    	if(txtSenha.getText() != txtConSenha.getText()) {
+    		//Alert alert = new Alert(Alert.AlertType.ERROR);
+    		//alert.setTitle("Please Confirm");
+			//alert.setHeaderText("Please consider Subscribing");
+			//alert.setContentText("Please Subscribe so that you will be notified when I release new videos");
+ 		}
+    	if (application == null) {
+    	} else {
+    		application.goToLogin();
+    	}
+
+    	Usuario u = new Usuario();
+    	u.setNome(txtNome.getText());
+    	u.setEmail(txtEmail.getText());
+    	u.setSenha(txtSenha.getText());
+    	u.setAdministrador(false);
+    	u.setId(DaoFactory.getUsuarioDao().salvar(u));
+    	return u;
     	
+        
     }
 
 	@Override
