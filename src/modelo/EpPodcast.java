@@ -1,6 +1,9 @@
 
 package modelo;
 
+import java.util.List;
+
+import dao.DaoFactory;
 
 public class EpPodcast {
     private Integer id;
@@ -10,7 +13,22 @@ public class EpPodcast {
     private String tema;
     private String faixaEtaria;
 
-
+    public static List<EpPodcast> episodios(){
+		return DaoFactory.getEpPodcastDao().getEpPodcast();
+	}
+	
+	public static Boolean delete(Integer id){
+        
+        return DaoFactory.getEpPodcastDao().delete(id);
+        
+    }
+	
+	public static List<EpPodcast> buscarPorPesquisa(String pesquisa){
+        
+        return DaoFactory.getEpPodcastDao().buscarPorPesquisa(pesquisa);
+        
+    }
+	
     
     public Integer getId() {
         return id;

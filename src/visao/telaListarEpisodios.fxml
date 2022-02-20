@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.ListarEpisodiosControle"/>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.ListarEpisodiosControle">
+   <children>
+      <TableView fx:id="tableView" layoutX="115.0" layoutY="76.0" prefHeight="200.0" prefWidth="454.0">
+        <columns>
+          <TableColumn fx:id="tbcId" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="tbcTitulo" prefWidth="75.0" text="Título" />
+            <TableColumn fx:id="tbcGenero" prefWidth="75.0" text="Gênero" />
+            <TableColumn fx:id="tbcAutor" prefWidth="75.0" text="Autor" />
+            <TableColumn fx:id="tbcTema" prefWidth="75.0" text="Tema" />
+            <TableColumn fx:id="tbcFaixaEtaria" prefWidth="77.60001220703123" text="Faixa Etária" />
+        </columns>
+      </TableView>
+      <Button fx:id="btDeletarEpisodio" layoutX="63.0" layoutY="339.0" mnemonicParsing="false" onAction="#deletarEpisodio" text="Deletar Episódio" />
+   </children>
+</AnchorPane>

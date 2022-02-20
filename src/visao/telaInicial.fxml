@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.InicialControle">
    <children>
       <Line endX="590.0" layoutX="101.0" layoutY="48.0" startX="-100.0" />
-      <TextField fx:id="txtPesquisar" layoutX="420.0" layoutY="14.0" onAction="#Pesquisar" />
+      <TextField fx:id="txtPesquisar" layoutX="420.0" layoutY="14.0" onKeyTyped="#Pesquisar" />
+      <TableView fx:id="tableView" layoutX="188.0" layoutY="101.0" prefHeight="200.0" prefWidth="381.0">
+         <columns>
+            <TableColumn fx:id="tbcTitulo" prefWidth="75.0" text="Título" />
+            <TableColumn fx:id="tbcGenero" prefWidth="75.0" text="Gênero" />
+            <TableColumn fx:id="tbcAutor" prefWidth="75.0" text="Autor" />
+            <TableColumn fx:id="tbcTema" prefWidth="75.0" text="Tema" />
+            <TableColumn fx:id="tbcFaixaEtaria" prefWidth="77.60001220703123" text="Faixa Etária" />
+         </columns>
+      </TableView>
+      <Button fx:id="btOuvidos" layoutX="35.0" layoutY="76.0" mnemonicParsing="false" onAction="#irOuvidos" text="Ouvidos" />
+      <Button fx:id="btAdicionarOuvidos" layoutX="188.0" layoutY="338.0" mnemonicParsing="false" onAction="#adicionarOuvidos" text="Adicionar aos ouvidos" />
    </children>
 </AnchorPane>

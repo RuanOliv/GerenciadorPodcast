@@ -3,11 +3,7 @@ package controle;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
 import java.util.ResourceBundle;
-
-import javax.swing.ListSelectionModel;
-
 import app.App;
 import dao.DaoFactory;
 import javafx.collections.FXCollections;
@@ -17,7 +13,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import modelo.EpPodcast;
 
@@ -32,16 +27,16 @@ public class CadastroEpPodcastControle implements Initializable{
     private Button btNewEpisodio;
 
     @FXML
-    private ComboBox<?> cbFaixaEtaria;
+    private ComboBox<String> cbFaixaEtaria;
 
     @FXML
-    private ComboBox<?> cbGenero;
+    private ComboBox<String> cbGenero;
 
     @FXML
-    private PasswordField txtAutor;
+    private TextField txtAutor;
 
     @FXML
-    private PasswordField txtTema;
+    private TextField txtTema;
 
     @FXML
     private TextField txtTitulo;
@@ -64,18 +59,33 @@ public class CadastroEpPodcastControle implements Initializable{
         
         return e;
     }
-    private List<String> generos = new ArrayList<>();
+    private List<String> generos = new ArrayList<String>();
+    private ObservableList<String> obsGeneros;
+    private List<String> faixasEtarias = new ArrayList<String>();
+    private ObservableList<String> obsFaixaEtaria;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		carregarGeneros();
+		carregarFaixasEtarias();
+				
+	}
+	
+	public void carregarGeneros() {
+		generos.add("Games");
+		generos.add("Política");
 		
-		generos.add("Romance");
-		generos.add("Terror");
+		obsGeneros = FXCollections.observableArrayList(generos);
+		cbGenero.setItems(obsGeneros);
+
+	}
+	public void carregarFaixasEtarias() {
+		faixasEtarias.add("Livre");
+		faixasEtarias.add("+16");
 		
-		ObservableList<String> obsGeneros = FXCollections.observableArrayList(generos);
-		cbGenero.setItems(null);
-		
-		
+		obsFaixaEtaria = FXCollections.observableArrayList(faixasEtarias);
+		cbFaixaEtaria.setItems(obsFaixaEtaria);
+
 	}
 
 }

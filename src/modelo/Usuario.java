@@ -1,6 +1,10 @@
 
 package modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import dao.DaoFactory;
 
 public class Usuario {
     
@@ -10,6 +14,16 @@ public class Usuario {
     private String email;
     private String senha;
     private Boolean administrador;
+    
+	public static List<Usuario> usuarios(){
+		return DaoFactory.getUsuarioDao().getUsuario();
+	}
+	
+	public static Boolean delete(Integer id){
+        
+        return DaoFactory.getUsuarioDao().delete(id);
+        
+    }
 
     public Integer getId() {
         return id;

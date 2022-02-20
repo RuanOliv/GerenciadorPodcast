@@ -139,5 +139,39 @@ public class EpPodcastDao extends Dao {
             Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
-}
+    }
+    public List<EpPodcast> buscarPorPesquisa(String pesquisa) {
+        try {
+            
+            
+            List<EpPodcast> eppodcast = new ArrayList<>();
+            PreparedStatement stmt = this.con.prepareStatement("select id, titulo, genero, autor, tema, faixaetaria from eppodcast where titulo=? OR genero=? OR tema=? OR faixaetaria=?");
+            stmt.setString(1, pesquisa);
+            stmt.setString(2, pesquisa);
+            stmt.setString(3, pesquisa);
+            stmt.setString(4, pesquisa);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {       
+            	  EpPodcast e = new EpPodcast();
+                  e.setId(rs.getInt("id"));
+                  e.setTitulo(rs.getString("titulo"));
+                  e.setGenero(rs.getString("genero"));
+                  e.setAutor(rs.getString("autor"));
+                  e.setTema(rs.getString("tema"));
+                  e.setFaixaEtaria(rs.getString("faixaetaria"));
+                  
+                  eppodcast.add(e);
+            }
+            rs.close();
+            stmt.close();
+            ConnectionFactory.closeConexao(this.con);
+            
+            return eppodcast;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
 }
