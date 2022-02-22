@@ -1,4 +1,5 @@
 package controle;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -11,8 +12,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-//import javafx.scene.control.Alert;
-//import javafx.scene.control.Alert.AlertType;
 import modelo.Usuario;
 
 public class CadastroUsuarioControle implements Initializable {
@@ -43,28 +42,41 @@ public class CadastroUsuarioControle implements Initializable {
 
     @FXML
     Usuario cadastrarUsuario(ActionEvent event) {
-    	if(txtSenha.getText() != txtConSenha.getText()) {
+    	Usuario u = new Usuario();
+    	if(buscarPorEmail(txtEmail.getText()).getId() != null) {
     		//Alert alert = new Alert(Alert.AlertType.ERROR);
     		//alert.setTitle("Please Confirm");
-			//alert.setHeaderText("Please consider Subscribing");
-			//alert.setContentText("Please Subscribe so that you will be notified when I release new videos");
- 		}
-    	if (application == null) {
-    	} else {
-    		application.goToLogin();
-    	}
+    		//alert.setHeaderText("Please consider Subscribing");
+    		//alert.setContentText("Please Subscribe so that you will be notified when I release new videos");
 
-    	Usuario u = new Usuario();
-    	u.setNome(txtNome.getText());
-    	u.setEmail(txtEmail.getText());
-    	u.setSenha(txtSenha.getText());
-    	u.setAdministrador(false);
-    	u.setId(DaoFactory.getUsuarioDao().salvar(u));
-    	return u;
+    		return u;
+    	
+    	}else {
+    		
+    		if(txtSenha.getText() != txtConSenha.getText()) {
+    		}
+    		if (application == null) {
+    		} else {
+    			application.goToLogin();
+    		}
+    		
+    		u.setNome(txtNome.getText());
+    		u.setEmail(txtEmail.getText());
+    		u.setSenha(txtSenha.getText());
+    		u.setAdministrador(false);
+    		u.setId(DaoFactory.getUsuarioDao().salvar(u));
+    		return u;
+    	}
     	
         
     }
-
+    
+    public static Usuario buscarPorEmail(String email){
+        
+        return DaoFactory.getUsuarioDao().buscarPorEmail(email);
+        
+    }
+    
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub

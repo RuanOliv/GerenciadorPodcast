@@ -16,12 +16,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import modelo.EpPodcast;
 
+
 public class InicialControle implements Initializable{
 	private App application;
 
 	public void setApp(App application) {
 		this.application = application;
 	}
+
 	@FXML
     private Button btAdicionarOuvidos;
 
@@ -66,7 +68,7 @@ public class InicialControle implements Initializable{
 
     @FXML
     void irOuvidos(ActionEvent event) {
-
+    	
     }
 
 	@Override

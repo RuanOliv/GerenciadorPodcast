@@ -19,10 +19,11 @@ import modelo.Usuario;
 
 public class LoginControle implements Initializable {
 	private App application;
-
+	
 	public void setApp(App application) {
 		this.application = application;
 	}
+	
 	@FXML
     private AnchorPane AnchorPane;
 	
@@ -43,13 +44,18 @@ public class LoginControle implements Initializable {
     		} else {
     			application.goToInicial();
     		}
+ 
     	}else {
     		System.out.println("conta não encontrada!!");
     	}
 		
     }
 
-    @FXML
+    
+	
+
+
+	@FXML
     void TelaCadastro(MouseEvent event) {
     	if (application == null) {
 		} else {
