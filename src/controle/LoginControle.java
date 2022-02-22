@@ -38,7 +38,15 @@ public class LoginControle implements Initializable {
     @FXML
     void Entrar(ActionEvent event) {
     	String email = txtEmail.getText();
-		buscarPorEmail(email);
+    	if(buscarPorEmail(email).getId() != null) {
+    		if (application == null) {
+    		} else {
+    			application.goToInicial();
+    		}
+    	}else {
+    		System.out.println("conta não encontrada!!");
+    	}
+		
     }
 
     @FXML

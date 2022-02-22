@@ -8,5 +8,8 @@ public class DaoFactory {
     public static EpPodcastDao getEpPodcastDao(){
         return new EpPodcastDao();
     }
+    public static EpisodioOuvidoDao getEpisodioOuvidoDao(){
+        return new EpisodioOuvidoDao();
+    }
     
 }

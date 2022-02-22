@@ -31,7 +31,7 @@ public class App extends Application {
 		try {
 			stage = primaryStage;
 			stage.setTitle("Login");
-			goToInicial();
+			goToLogin();
 			primaryStage.show();
 		} catch (Exception ex) {
 			Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
