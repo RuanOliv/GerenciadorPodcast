@@ -22,8 +22,9 @@ public class LoginControle implements Initializable {
 	
 	public void setApp(App application) {
 		this.application = application;
+		
 	}
-	
+
 	@FXML
     private AnchorPane AnchorPane;
 	
@@ -44,9 +45,13 @@ public class LoginControle implements Initializable {
     		} else {
     			application.goToInicial();
     		}
- 
+    			application.usuario.setId(buscarPorEmail(email).getId());
+    			application.usuario.setNome(buscarPorEmail(email).getNome());
+    			application.usuario.setEmail(email);
+    			application.usuario.setSenha(buscarPorEmail(email).getSenha());
+    			application.usuario.setAdministrador(buscarPorEmail(email).getAdministrador());
     	}else {
-    		System.out.println("conta não encontrada!!");
+    		System.out.println("conta não encontrada!");
     	}
 		
     }

@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 
 import controle.CadastroEpPodcastControle;
 import controle.CadastroUsuarioControle;
+import controle.EpisodiosOuvidosControle;
 import controle.InicialAdmControle;
 import controle.InicialControle;
 import controle.ListarEpisodiosControle;
@@ -18,10 +19,11 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import modelo.Usuario;
 
 public class App extends Application {
 	private Stage stage;
-	
+	public Usuario usuario;
 	
     public static void main(String[] args) {
        	Application.launch(App.class, (java.lang.String[]) null);
@@ -31,7 +33,7 @@ public class App extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		try {
 			stage = primaryStage;
-			stage.setTitle("Login");
+			stage.setTitle("Gerenciador de Podcast");
 			goToLogin();
 			
 			primaryStage.show();
@@ -41,9 +43,11 @@ public class App extends Application {
 	}
     public void goToLogin() {
 		try {
-			
+			usuario = new Usuario();
 			LoginControle lController = (LoginControle) replaceSceneContent("../visao/telaLogin.fxml");
 			lController.setApp(this);
+			
+			
 		} catch (Exception ex) {
 			Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
 		}
@@ -52,6 +56,7 @@ public class App extends Application {
 		try {
 			InicialControle iController = (InicialControle) replaceSceneContent("../visao/telaInicial.fxml");
 			iController.setApp(this);
+			
 			
 		} catch (Exception ex) {
 			Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
@@ -103,6 +108,16 @@ public class App extends Application {
 			Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
 		}
 	}
+    public void goToEpisodiosOuvidos() {
+		try {
+			EpisodiosOuvidosControle cController = (EpisodiosOuvidosControle) replaceSceneContent("../visao/telaEpisodiosOuvidos.fxml");
+			cController.setApp(this);
+
+		} catch (Exception ex) {
+			Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+		}
+	}
+
 
     
     private Initializable replaceSceneContent(String fxml) throws Exception {
@@ -123,6 +138,7 @@ public class App extends Application {
 		Scene scene = new Scene(page, 690, 421);
 		stage.setScene(scene);
 		stage.sizeToScene();
+		stage.setResizable(false);
 		return (Initializable) loader.getController();
 		
 	}

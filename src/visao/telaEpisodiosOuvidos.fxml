@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.EpisodiosOuvidosControle">
+   <children>
+      <Line endX="590.0" layoutX="101.0" layoutY="48.0" startX="-100.0" />
+      <TableView fx:id="tableView" layoutX="217.0" layoutY="86.0" prefHeight="287.0" prefWidth="402.0">
+         <columns>
+            <TableColumn fx:id="tbcTitulo" prefWidth="75.0" text="Título" />
+            <TableColumn fx:id="tbcGenero" prefWidth="75.0" text="Gênero" />
+            <TableColumn fx:id="tbcAutor" prefWidth="75.0" text="Autor" />
+            <TableColumn fx:id="tbcTema" prefWidth="93.0" text="Tema" />
+            <TableColumn fx:id="tbcFaixaEtaria" prefWidth="83.0" text="Faixa Etária" />
+         </columns>
+      </TableView>
+      <Button fx:id="btVoltar" layoutX="606.0" layoutY="14.0" mnemonicParsing="false" onAction="#voltarTela" text="Voltar" />
+   </children>
+</AnchorPane>

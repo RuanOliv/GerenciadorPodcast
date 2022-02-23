@@ -14,7 +14,7 @@ import modelo.EpisodioOuvido;
 import util.ConnectionFactory;
 
 public class EpisodioOuvidoDao extends Dao {
-	public void salvar(EpisodioOuvido e) {
+	public EpisodioOuvido salvar(EpisodioOuvido e) {
 		
         try {
             
@@ -36,6 +36,7 @@ public class EpisodioOuvidoDao extends Dao {
             Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        return e;
     }  
 	public List<EpPodcast> getEpisodiosOuvidos(){
         try {

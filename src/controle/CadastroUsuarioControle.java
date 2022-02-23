@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -21,6 +22,9 @@ public class CadastroUsuarioControle implements Initializable {
 	public void setApp(App application) {
 		this.application = application;
 	}
+	
+	@FXML
+    private Label lbAlert;
 	
     @FXML
     private AnchorPane AnchorPane;
@@ -44,11 +48,7 @@ public class CadastroUsuarioControle implements Initializable {
     Usuario cadastrarUsuario(ActionEvent event) {
     	Usuario u = new Usuario();
     	if(buscarPorEmail(txtEmail.getText()).getId() != null) {
-    		//Alert alert = new Alert(Alert.AlertType.ERROR);
-    		//alert.setTitle("Please Confirm");
-    		//alert.setHeaderText("Please consider Subscribing");
-    		//alert.setContentText("Please Subscribe so that you will be notified when I release new videos");
-
+    		lbAlert.setVisible(true);
     		return u;
     	
     	}else {

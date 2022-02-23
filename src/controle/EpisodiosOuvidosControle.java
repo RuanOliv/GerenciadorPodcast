@@ -11,26 +11,20 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyEvent;
 import modelo.EpPodcast;
 import modelo.EpisodioOuvido;
-import modelo.Usuario;
 
-
-public class InicialControle implements Initializable{
-	private App application;
+public class EpisodiosOuvidosControle implements Initializable {
 	
+	private App application;
+
 	public void setApp(App application) {
 		this.application = application;
 	}
-
+	
 	@FXML
-    private Button btAdicionarOuvidos;
-
-    @FXML
-    private Button btOuvidos;
+    private Button btVoltar;
 
     @FXML
     private TableView<EpPodcast> tableView;
@@ -51,44 +45,24 @@ public class InicialControle implements Initializable{
     private TableColumn<EpPodcast, String> tbcTitulo;
     
     @FXML
-    private TextField txtPesquisar;
-
-    @FXML
-    void Pesquisar(KeyEvent event) {
-    	if(txtPesquisar.getText() == "") {
-    		tableView.setItems(FXCollections.observableArrayList(EpPodcast.episodios()));
-    	}else {
-    		tableView.setItems(FXCollections.observableArrayList(EpPodcast.buscarPorPesquisa(txtPesquisar.getText())));	   		
-    	}
-    	
-    }
-
-    @FXML
-    void adicionarOuvidos(ActionEvent event) {
-    	EpisodioOuvido e = new EpisodioOuvido();
-    	e.setIdEpisodio(tableView.getItems().get(tableView.getSelectionModel().getSelectedIndex()).getId());
-    	e.setIdUsuario(application.usuario.getId());
-    	EpisodioOuvido.salvar(e);
-    }
-
-    @FXML
-    void irOuvidos(ActionEvent event) {
+    void voltarTela(ActionEvent event) {
     	if(application == null) {
     		
     	}else {
-    		application.goToEpisodiosOuvidos();
+    		application.goToInicial();
     	}
     }
+    
 
 	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {	
+	public void initialize(URL arg0, ResourceBundle arg1) {
 		
 		tbcTitulo.setCellValueFactory(new PropertyValueFactory<EpPodcast, String>("titulo"));
 		tbcGenero.setCellValueFactory(new PropertyValueFactory<EpPodcast, String>("genero"));
 		tbcAutor.setCellValueFactory(new PropertyValueFactory<EpPodcast, String>("autor"));
 		tbcTema.setCellValueFactory(new PropertyValueFactory<EpPodcast, String>("tema"));
 		tbcFaixaEtaria.setCellValueFactory(new PropertyValueFactory<EpPodcast, String>("faixaEtaria"));
-		tableView.setItems(FXCollections.observableArrayList(EpPodcast.episodios()));		
+		tableView.setItems(FXCollections.observableArrayList(EpisodioOuvido.episodios()));
 		
 	}
 
