@@ -54,6 +54,7 @@ public class App extends Application {
 	}
     public void goToInicial(){
 		try {
+			usuario = new Usuario();
 			InicialControle iController = (InicialControle) replaceSceneContent("../visao/telaInicial.fxml");
 			iController.setApp(this);
 			
@@ -110,6 +111,7 @@ public class App extends Application {
 	}
     public void goToEpisodiosOuvidos() {
 		try {
+			usuario = new Usuario();
 			EpisodiosOuvidosControle cController = (EpisodiosOuvidosControle) replaceSceneContent("../visao/telaEpisodiosOuvidos.fxml");
 			cController.setApp(this);
 

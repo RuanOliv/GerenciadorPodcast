@@ -38,10 +38,11 @@ public class EpisodioOuvidoDao extends Dao {
         
         return e;
     }  
-	public List<EpPodcast> getEpisodiosOuvidos(){
+	public List<EpPodcast> getEpisodiosOuvidos(Integer id){
         try {
                    List<EpPodcast> eppodcast = new ArrayList<>();
-                    PreparedStatement stmt = this.con.prepareStatement("select eppodcast.id, eppodcast.titulo, eppodcast.genero, eppodcast.autor, eppodcast.tema, eppodcast.faixaetaria from episodiosouvidos inner join eppodcast on idEpisodio = eppodcast.id inner join usuario on idUsuario = usuario.id");
+                    PreparedStatement stmt = this.con.prepareStatement("select eppodcast.id, eppodcast.titulo, eppodcast.genero, eppodcast.autor, eppodcast.tema, eppodcast.faixaetaria from episodiosouvidos inner join eppodcast on idEpisodio = eppodcast.id where idUsuario = ?");
+                    stmt.setInt(1, id);
                     ResultSet rs = stmt.executeQuery();
 
                     while (rs.next()) {

@@ -45,11 +45,11 @@ public class LoginControle implements Initializable {
     		} else {
     			application.goToInicial();
     		}
-    			application.usuario.setId(buscarPorEmail(email).getId());
-    			application.usuario.setNome(buscarPorEmail(email).getNome());
-    			application.usuario.setEmail(email);
-    			application.usuario.setSenha(buscarPorEmail(email).getSenha());
-    			application.usuario.setAdministrador(buscarPorEmail(email).getAdministrador());
+    		application.usuario.setId(buscarPorEmail(email).getId());
+    		application.usuario.setNome(buscarPorEmail(email).getNome());
+    		application.usuario.setEmail(email);
+    		application.usuario.setSenha(buscarPorEmail(email).getSenha());
+    		application.usuario.setAdministrador(buscarPorEmail(email).getAdministrador());
     	}else {
     		System.out.println("conta não encontrada!");
     	}
@@ -77,7 +77,7 @@ public class LoginControle implements Initializable {
     
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+		
 		
 	}
     

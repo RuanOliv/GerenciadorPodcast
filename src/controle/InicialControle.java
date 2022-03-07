@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import app.App;
+import dao.DaoFactory;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +15,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import modelo.EpPodcast;
 import modelo.EpisodioOuvido;
 import modelo.Usuario;
@@ -25,10 +28,16 @@ public class InicialControle implements Initializable{
 	public void setApp(App application) {
 		this.application = application;
 	}
-
+	
+	@FXML
+    private AnchorPane AnchorPane;
+	
 	@FXML
     private Button btAdicionarOuvidos;
-
+	
+	@FXML
+    private Button btAdministrador;
+	
     @FXML
     private Button btOuvidos;
 
@@ -62,7 +71,16 @@ public class InicialControle implements Initializable{
     	}
     	
     }
-
+    
+    @FXML
+    void irAdministrador(ActionEvent event) {
+    	if(application == null) {
+    		
+    	}else {
+    		application.goToInicialAdm();
+    	}
+    }
+    
     @FXML
     void adicionarOuvidos(ActionEvent event) {
     	EpisodioOuvido e = new EpisodioOuvido();
@@ -70,14 +88,31 @@ public class InicialControle implements Initializable{
     	e.setIdUsuario(application.usuario.getId());
     	EpisodioOuvido.salvar(e);
     }
-
+    
+    
+    
     @FXML
     void irOuvidos(ActionEvent event) {
     	if(application == null) {
     		
     	}else {
+    		String email = application.usuario.getEmail();
+    		System.out.println(email);
     		application.goToEpisodiosOuvidos();
     	}
+    }
+    
+    @FXML
+    void test(MouseEvent event) {
+    	if(application == null) {
+			System.out.println("AAAAAA");
+		}else {
+			if(application.usuario.getAdministrador() != true) {
+				
+			}else {
+				btAdministrador.setVisible(true);
+			}			
+		}
     }
 
 	@Override
@@ -91,5 +126,12 @@ public class InicialControle implements Initializable{
 		tableView.setItems(FXCollections.observableArrayList(EpPodcast.episodios()));		
 		
 	}
-
+	
+	public static Usuario buscarPorEmail(String email){
+        
+        return DaoFactory.getUsuarioDao().buscarPorEmail(email);
+        
+    }
+    
+	
 }

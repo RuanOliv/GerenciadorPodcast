@@ -16,8 +16,8 @@ public class EpisodioOuvido {
 	
 	}
 	
-	public static List<EpPodcast> episodios(){
-		return DaoFactory.getEpisodioOuvidoDao().getEpisodiosOuvidos();
+	public static List<EpPodcast> episodios(Integer id){
+		return DaoFactory.getEpisodioOuvidoDao().getEpisodiosOuvidos(id);
 	}
 	
 	public Integer getIdUsuario() {

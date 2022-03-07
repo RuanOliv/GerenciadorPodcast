@@ -12,17 +12,22 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import modelo.EpPodcast;
 import modelo.EpisodioOuvido;
 
 public class EpisodiosOuvidosControle implements Initializable {
 	
 	private App application;
-
+	
 	public void setApp(App application) {
 		this.application = application;
 	}
 	
+	 @FXML
+	    private AnchorPane AnchorPane;
+	 
 	@FXML
     private Button btVoltar;
 
@@ -53,7 +58,16 @@ public class EpisodiosOuvidosControle implements Initializable {
     	}
     }
     
-
+    @FXML
+    void preencherId(MouseEvent event) {
+    	if(application == null) {
+    		
+    	}else {
+    		Integer id = application.usuario.getId();
+    		System.out.println(id);
+    	}
+    }
+    
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
@@ -62,7 +76,7 @@ public class EpisodiosOuvidosControle implements Initializable {
 		tbcAutor.setCellValueFactory(new PropertyValueFactory<EpPodcast, String>("autor"));
 		tbcTema.setCellValueFactory(new PropertyValueFactory<EpPodcast, String>("tema"));
 		tbcFaixaEtaria.setCellValueFactory(new PropertyValueFactory<EpPodcast, String>("faixaEtaria"));
-		tableView.setItems(FXCollections.observableArrayList(EpisodioOuvido.episodios()));
+		//tableView.setItems(FXCollections.observableArrayList(EpisodioOuvido.episodios(id)));
 		
 	}
 
