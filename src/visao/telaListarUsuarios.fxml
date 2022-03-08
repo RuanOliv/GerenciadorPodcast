@@ -17,5 +17,6 @@
         </columns>
       </TableView>
       <Button fx:id="btDeletarUsuario" layoutX="54.0" layoutY="356.0" mnemonicParsing="false" onAction="#deletarUsuario" text="Deletar Usuário" />
+      <Button fx:id="btVoltar" layoutX="616.0" layoutY="24.0" mnemonicParsing="false" onAction="#voltarTela" text="Voltar" />
    </children>
 </AnchorPane>

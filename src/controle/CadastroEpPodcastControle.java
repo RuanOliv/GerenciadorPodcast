@@ -25,6 +25,9 @@ public class CadastroEpPodcastControle implements Initializable{
 	}
     @FXML
     private Button btNewEpisodio;
+    
+    @FXML
+    private Button btVoltar;
 
     @FXML
     private ComboBox<String> cbFaixaEtaria;
@@ -59,6 +62,16 @@ public class CadastroEpPodcastControle implements Initializable{
         
         return e;
     }
+    
+    @FXML
+    void voltarTela(ActionEvent event) {
+    	if(application == null) {
+    		
+    	}else {
+    		application.goToInicialAdm();
+    	}
+    }
+    
     private List<String> generos = new ArrayList<String>();
     private ObservableList<String> obsGeneros;
     private List<String> faixasEtarias = new ArrayList<String>();

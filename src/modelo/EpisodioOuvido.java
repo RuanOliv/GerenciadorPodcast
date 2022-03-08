@@ -20,6 +20,14 @@ public class EpisodioOuvido {
 		return DaoFactory.getEpisodioOuvidoDao().getEpisodiosOuvidos(id);
 	}
 	
+	public static EpisodioOuvido buscarPorId(Integer idEpisodio, Integer idUsuario) {
+		return DaoFactory.getEpisodioOuvidoDao().buscarPorId(idEpisodio, idUsuario);
+	}
+	
+	public static Boolean deletar(Integer idEpisodio, Integer idUsuario) {
+		return DaoFactory.getEpisodioOuvidoDao().delete(idEpisodio, idUsuario);
+	}
+	
 	public Integer getIdUsuario() {
 		return idUsuario;
 	}

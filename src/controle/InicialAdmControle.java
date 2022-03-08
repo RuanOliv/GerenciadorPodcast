@@ -22,6 +22,9 @@ import javafx.scene.control.Button;
 	    private Button btCadEpisodios;
 
 	    @FXML
+	    private Button btVoltar;
+
+	    @FXML
 	    private Button btListEpisodios;
 
 	    @FXML
@@ -49,6 +52,15 @@ import javafx.scene.control.Button;
 			} else {
 				application.goToListUsuario();
 			}
+	    }
+	    
+	    @FXML
+	    void voltarTela(ActionEvent event) {
+	    	if(application == null) {
+	    		
+	    	}else {
+	    		application.goToInicial();
+	    	}
 	    }
 
 		@Override

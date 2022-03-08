@@ -21,5 +21,6 @@
             <Font size="15.0" />
          </font>
       </Button>
+      <Button fx:id="btVoltar" layoutX="616.0" layoutY="24.0" mnemonicParsing="false" onAction="#voltarTela" text="Voltar" />
    </children>
 </AnchorPane>

@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 import app.App;
 import modelo.EpPodcast;
 import modelo.EpisodioOuvido;
+import modelo.Usuario;
 import util.ConnectionFactory;
 
 public class EpisodioOuvidoDao extends Dao {
@@ -69,5 +70,49 @@ public class EpisodioOuvidoDao extends Dao {
                     return null;
                 }
 
+    }
+	
+	public EpisodioOuvido buscarPorId(Integer idEpisodio, Integer idUsuario) {
+        try {
+        	EpisodioOuvido e = new EpisodioOuvido();
+            
+
+            PreparedStatement stmt = this.con.prepareStatement("select idusuario, idepisodio from episodiosouvidos where idepisodio=? and idusuario=?");
+            stmt.setInt(1, idEpisodio);
+            stmt.setInt(2, idUsuario);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {               
+            	e.setIdUsuario(rs.getInt("idusuario"));
+            	e.setIdEpisodio(rs.getInt("idepisodio"));
+                
+            }
+            rs.close();
+            stmt.close();
+            ConnectionFactory.closeConexao(this.con);
+            
+            return e;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+
+    }
+	public Boolean delete(Integer idEpisodio, Integer idUsuario) {
+        try {
+
+            PreparedStatement stmt = this.con.prepareStatement("delete from episodiosouvidos where idepisodio=? and idusuario=?");
+            stmt.setInt(1, idEpisodio);
+            stmt.setInt(2, idUsuario);
+            stmt.executeUpdate();
+
+            stmt.close();
+            ConnectionFactory.closeConexao(this.con);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
     }
 }

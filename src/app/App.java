@@ -32,6 +32,7 @@ public class App extends Application {
     @Override
 	public void start(Stage primaryStage) throws Exception {
 		try {
+			usuario = new Usuario();
 			stage = primaryStage;
 			stage.setTitle("Gerenciador de Podcast");
 			goToLogin();
@@ -43,7 +44,7 @@ public class App extends Application {
 	}
     public void goToLogin() {
 		try {
-			usuario = new Usuario();
+			
 			LoginControle lController = (LoginControle) replaceSceneContent("../visao/telaLogin.fxml");
 			lController.setApp(this);
 			
@@ -54,10 +55,10 @@ public class App extends Application {
 	}
     public void goToInicial(){
 		try {
-			usuario = new Usuario();
+			
 			InicialControle iController = (InicialControle) replaceSceneContent("../visao/telaInicial.fxml");
 			iController.setApp(this);
-			
+			iController.isAdm();
 			
 		} catch (Exception ex) {
 			Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
@@ -111,9 +112,10 @@ public class App extends Application {
 	}
     public void goToEpisodiosOuvidos() {
 		try {
-			usuario = new Usuario();
+			
 			EpisodiosOuvidosControle cController = (EpisodiosOuvidosControle) replaceSceneContent("../visao/telaEpisodiosOuvidos.fxml");
 			cController.setApp(this);
+			cController.fillTable();
 
 		} catch (Exception ex) {
 			Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
@@ -125,7 +127,6 @@ public class App extends Application {
     private Initializable replaceSceneContent(String fxml) throws Exception {
     	
     	
-    	   
 		FXMLLoader loader = new FXMLLoader();
 		InputStream in = App.class.getResourceAsStream(fxml);
 		loader.setBuilderFactory(new JavaFXBuilderFactory());

@@ -20,5 +20,10 @@
       </Button>
       <Label layoutX="247.0" layoutY="307.0" text="Não tem uma conta ?" />
       <Label fx:id="btTelaCadastro" layoutX="368.0" layoutY="307.0" onMouseClicked="#TelaCadastro" text="CADASTRE-SE" textFill="#403f3f" />
+      <Label fx:id="lbAlert" alignment="CENTER" contentDisplay="CENTER" layoutX="490.0" layoutY="337.0" prefHeight="49.0" prefWidth="169.0" style="-fx-background-color: red;" text="Conta não encontrada! Tente novamente!" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

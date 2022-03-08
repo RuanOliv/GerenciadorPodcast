@@ -39,5 +39,6 @@
             <Font size="15.0" />
          </font>
       </TextField>
+      <Button fx:id="btVoltar" layoutX="619.0" layoutY="13.0" mnemonicParsing="false" onAction="#voltarTela" text="Voltar" />
    </children>
 </AnchorPane>

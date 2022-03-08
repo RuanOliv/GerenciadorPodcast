@@ -23,7 +23,10 @@ public class ListarEpisodiosControle implements Initializable{
 	}
 	@FXML
     private Button btDeletarEpisodio;
-
+	
+	@FXML
+    private Button btVoltar;
+	
     @FXML
     private TableView<EpPodcast> tableView;
 
@@ -49,6 +52,16 @@ public class ListarEpisodiosControle implements Initializable{
     void deletarEpisodio(ActionEvent event) {
     	EpPodcast.delete(tableView.getItems().remove(tableView.getSelectionModel().getSelectedIndex()).getId());
     }
+    
+    @FXML
+    void voltarTela(ActionEvent event) {
+    	if(application == null) {
+    		
+    	}else {
+    		application.goToInicialAdm();
+    	}
+    }
+    
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		tbcId.setCellValueFactory(new PropertyValueFactory<EpPodcast, Integer>("id"));

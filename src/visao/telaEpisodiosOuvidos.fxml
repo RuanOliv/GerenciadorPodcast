@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#preencherId" prefHeight="421.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.EpisodiosOuvidosControle">
+<AnchorPane fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="421.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.EpisodiosOuvidosControle">
    <children>
       <Line endX="590.0" layoutX="101.0" layoutY="48.0" startX="-100.0" />
       <TableView fx:id="tableView" layoutX="217.0" layoutY="86.0" prefHeight="287.0" prefWidth="402.0">
@@ -19,5 +19,6 @@
          </columns>
       </TableView>
       <Button fx:id="btVoltar" layoutX="606.0" layoutY="14.0" mnemonicParsing="false" onAction="#voltarTela" text="Voltar" />
+      <Button fx:id="btTirar" layoutX="39.0" layoutY="348.0" mnemonicParsing="false" onAction="#tirarLista" text="Tirar da lista" />
    </children>
 </AnchorPane>

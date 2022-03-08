@@ -27,6 +27,9 @@ public class ListarUsuariosControle implements Initializable {
     private Button btDeletarUsuario;
 	
 	@FXML
+    private Button btVoltar;
+	
+	@FXML
     private TableView<Usuario> tableView;
 
     @FXML
@@ -48,6 +51,15 @@ public class ListarUsuariosControle implements Initializable {
     void deletarUsuario(ActionEvent event) {
     	Usuario.delete(tableView.getItems().remove(tableView.getSelectionModel().getSelectedIndex()).getId());
     	
+    }
+    
+    @FXML
+    void voltarTela(ActionEvent event) {
+    	if(application == null) {
+    		
+    	}else {
+    		application.goToInicialAdm();
+    	}
     }
     
 	@Override
