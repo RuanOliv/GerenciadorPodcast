@@ -25,11 +25,6 @@
             <Font size="15.0" />
          </font>
       </PasswordField>
-      <PasswordField fx:id="txtConSenha" layoutX="224.0" layoutY="259.0" prefHeight="30.0" prefWidth="242.0" promptText="Confirme sua senha">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </PasswordField>
       <Button fx:id="btNewUser" layoutX="240.0" layoutY="324.0" mnemonicParsing="false" onAction="#cadastrarUsuario" prefHeight="25.0" prefWidth="214.0" style="-fx-background-color: #403F3F;" text="Cadastrar Usuário" textFill="WHITE">
          <font>
             <Font size="16.0" />
@@ -43,6 +38,11 @@
       <Line endX="163.0" fill="TRANSPARENT" layoutX="327.0" layoutY="119.0" startX="-126.0" strokeWidth="0.5" />
       <Line endX="589.0" layoutX="101.0" layoutY="48.0" startX="-100.0" />
       <Label fx:id="lbAlert" alignment="CENTER" contentDisplay="CENTER" layoutX="491.0" layoutY="173.0" prefHeight="49.0" prefWidth="169.0" style="-fx-background-color: red;" text="Email já cadastrado! Tente novamente!" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbAlertData" alignment="CENTER" contentDisplay="CENTER" layoutX="496.0" layoutY="251.0" prefHeight="49.0" prefWidth="169.0" style="-fx-background-color: red;" text="Preencha todos os campos!" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
          <font>
             <Font size="15.0" />
          </font>

@@ -115,4 +115,45 @@ public class EpisodioOuvidoDao extends Dao {
             return false;
         }
     }
+	public Boolean deleteEpisodios(Integer idEpisodio) {
+        try {
+
+            PreparedStatement stmt = this.con.prepareStatement("delete from episodiosouvidos where idepisodio=?");
+            stmt.setInt(1, idEpisodio);
+            stmt.executeUpdate();
+
+            stmt.close();
+            ConnectionFactory.closeConexao(this.con);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+	public EpisodioOuvido buscarEpisodiosPorId(Integer idEpisodio) {
+        try {
+        	EpisodioOuvido e = new EpisodioOuvido();
+            
+
+            PreparedStatement stmt = this.con.prepareStatement("select idusuario, idepisodio from episodiosouvidos where idepisodio=?");
+            stmt.setInt(1, idEpisodio);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {               
+            	e.setIdUsuario(rs.getInt("idusuario"));
+            	e.setIdEpisodio(rs.getInt("idepisodio"));
+                
+            }
+            rs.close();
+            stmt.close();
+            ConnectionFactory.closeConexao(this.con);
+            
+            return e;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+
+    }
 }

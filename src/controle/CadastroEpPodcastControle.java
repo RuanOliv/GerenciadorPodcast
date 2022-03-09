@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
 import app.App;
 import dao.DaoFactory;
 import javafx.collections.FXCollections;
@@ -13,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import modelo.EpPodcast;
 
@@ -25,6 +27,9 @@ public class CadastroEpPodcastControle implements Initializable{
 	}
     @FXML
     private Button btNewEpisodio;
+    
+    @FXML
+    private Label lbAlert;
     
     @FXML
     private Button btVoltar;
@@ -46,19 +51,24 @@ public class CadastroEpPodcastControle implements Initializable{
 
     @FXML
     EpPodcast cadastrarEpisodio(ActionEvent event) {
+    	EpPodcast e = new EpPodcast();
     	if (application == null) {
     	} else {
-    		application.goToInicial();
+    		if(txtTitulo.getText() == "" || cbGenero.getSelectionModel().getSelectedItem() == null ||
+    				txtAutor.getText() == "" || txtTema.getText() == "" || cbFaixaEtaria.getSelectionModel().getSelectedItem() == null) {
+    			lbAlert.setVisible(true);;
+    		}else {
+    			e.setTitulo(txtTitulo.getText());
+    			e.setGenero(cbGenero.getSelectionModel().getSelectedItem().toString());
+    			e.setAutor(txtAutor.getText());
+    			e.setTema(txtTema.getText());
+    			e.setFaixaEtaria(cbFaixaEtaria.getSelectionModel().getSelectedItem().toString());
+    			e.setId(DaoFactory.getEpPodcastDao().salvar(e));
+    			
+    			application.goToInicial();
+    			
+    		}
     	}
-    	EpPodcast e = new EpPodcast();
-        e.setTitulo(txtTitulo.getText());
-        e.setGenero(cbGenero.getSelectionModel().getSelectedItem().toString());
-        e.setAutor(txtAutor.getText());
-        e.setTema(txtTema.getText());
-        e.setFaixaEtaria(cbFaixaEtaria.getSelectionModel().getSelectedItem().toString());
-
-        
-        e.setId(DaoFactory.getEpPodcastDao().salvar(e));
         
         return e;
     }
@@ -87,6 +97,9 @@ public class CadastroEpPodcastControle implements Initializable{
 	public void carregarGeneros() {
 		generos.add("Games");
 		generos.add("Política");
+		generos.add("Comédia");
+		generos.add("Saúde");
+		generos.add("Educação");
 		
 		obsGeneros = FXCollections.observableArrayList(generos);
 		cbGenero.setItems(obsGeneros);
@@ -94,7 +107,9 @@ public class CadastroEpPodcastControle implements Initializable{
 	}
 	public void carregarFaixasEtarias() {
 		faixasEtarias.add("Livre");
+		faixasEtarias.add("+18");
 		faixasEtarias.add("+16");
+		faixasEtarias.add("+10");
 		
 		obsFaixaEtaria = FXCollections.observableArrayList(faixasEtarias);
 		cbFaixaEtaria.setItems(obsFaixaEtaria);

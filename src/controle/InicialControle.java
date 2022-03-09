@@ -101,8 +101,6 @@ public class InicialControle implements Initializable {
 			e.setIdEpisodio(tableView.getItems().get(tableView.getSelectionModel().getSelectedIndex()).getId());
 			e.setIdUsuario(application.usuario.getId());
 			EpisodioOuvido.salvar(e);
-			System.out.println("Cadastrado com sucesso!");
-			
 		}
 	}
 

@@ -13,6 +13,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import modelo.EpPodcast;
+import modelo.EpisodioOuvido;
 import modelo.Usuario;
 
 public class ListarEpisodiosControle implements Initializable{
@@ -50,7 +51,12 @@ public class ListarEpisodiosControle implements Initializable{
 
     @FXML
     void deletarEpisodio(ActionEvent event) {
-    	EpPodcast.delete(tableView.getItems().remove(tableView.getSelectionModel().getSelectedIndex()).getId());
+    	if(EpisodioOuvido.buscarEpisodiosPorId(tableView.getItems().get(tableView.getSelectionModel().getSelectedIndex()).getId()).getIdEpisodio() != null) {
+    		System.out.println("Não foi possível deletar!");
+    	}else {
+    		EpisodioOuvido.deletarEpisodios(tableView.getItems().get(tableView.getSelectionModel().getSelectedIndex()).getId());
+    		EpPodcast.delete(tableView.getItems().remove(tableView.getSelectionModel().getSelectedIndex()).getId());
+    	}
     }
     
     @FXML

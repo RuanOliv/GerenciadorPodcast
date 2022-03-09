@@ -24,8 +24,16 @@ public class EpisodioOuvido {
 		return DaoFactory.getEpisodioOuvidoDao().buscarPorId(idEpisodio, idUsuario);
 	}
 	
+	public static EpisodioOuvido buscarEpisodiosPorId(Integer idEpisodio) {
+		return DaoFactory.getEpisodioOuvidoDao().buscarEpisodiosPorId(idEpisodio);
+	}
+	
 	public static Boolean deletar(Integer idEpisodio, Integer idUsuario) {
 		return DaoFactory.getEpisodioOuvidoDao().delete(idEpisodio, idUsuario);
+	}
+	
+	public static Boolean deletarEpisodios(Integer idEpisodio) {
+		return DaoFactory.getEpisodioOuvidoDao().deleteEpisodios(idEpisodio);
 	}
 	
 	public Integer getIdUsuario() {
